@@ -1,0 +1,30 @@
+public int[] squareUp(int n){
+    	int[] tab = new int[n*n];
+        int k, p;
+        k=1;
+        p=n;
+            if(n==1){
+                tab[0]=1;
+            }
+            for(int i=0; i<tab.length;i++) {
+                if (i==p-k) {
+                    tab[i] = k;
+                    k=k-1;
+                } else {
+                    tab[i] = 0;
+                }
+                if(i%n==0 && i!=0){
+                    k=i/n+1;
+                    p=p+n;
+                }
+                if(i==tab.length-n){
+                    k=n;
+                    while(i<tab.length){
+                        tab[i]=k;
+                        k=k-1;
+                        i=i+1;
+                    }
+                }
+            }
+	return tab;
+}
